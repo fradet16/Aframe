@@ -1,39 +1,32 @@
 <html>
-  <head>
+    <title>Aframe</title>
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-  </head>
-  <body>
-    <a-scene>
-      <a-entity id="imageContainer" rotation="0 0 0">
-        <a-image scale="1 1.3 1" position="-0.04 2.5 -2.230" src="adobe.png"></a-image>
-        <a-image scale="1 1.3 1" rotation="1.495 -43.278 0" position="1.531 2.5 -1.8663.000" src="after.png"></a-image>
-        <a-image scale="1 1.3 1" rotation="0 43.258 0" position="-1.495 2.5 -1.847" src="canva.png"></a-image>
-        <a-image scale="1 1.3 1" rotation="2.346 -90.000 -0.003" position="2.206 2.5 -0.017" src="ai.png"></a-image>
-        <a-image scale="1 1.3 1" rotation="-90 -134.189 0" position="1.769 2.5 1.645" src="ps.png"></a-image>
-        <a-image scale="1 1.3 1" rotation="0 90 0" position="-2.346 2.5 -0.003" src="premier.png"></a-image>
-        <a-image scale="1 1.3 1" rotation="0 134.189 0" position="-1.769 2.5 1.645" src="figma.png"></a-image>
-        <a-image scale="1 1.3 1" position="-0.040 2.500 2.230" src="Moi.png"></a-image>
-      </a-entity>
-
-      <a-entity id="camera" position="0 1.25 0">
-        <a-camera></a-camera>
-      </a-entity>
-
-      <a-entity id="rig" position="0 0 0">
-        <a-entity camera look-controls wasd-controls></a-entity>
-      </a-entity>
-
-      <script>
-        var imageContainer = document.getElementById('imageContainer');
-        var rotationSpeed = 0.00; // ajustez cette valeur selon votre préférence de vitesse
-
-        function animateImages() {
-          imageContainer.object3D.rotation.y += rotationSpeed;
-          requestAnimationFrame(animateImages);
-        }
-
-        animateImages();
-      </script>
-    </a-scene>
-  </body>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    
+    <body style="margin : 0px; overflow: hidden;">
+        <a-scene embedded arjs>
+        <a-marker preset="hiro" position="0 0 0" rotation="-90 0 0">
+            <a-entity id="imageContainer" rotation="0 0 0">
+                <a-image scale="1 1.3 1" rotation="-90 0 0" position="-0.04 2.5 -2.230" src="adobe.png"></a-image>
+                <a-image scale="1 1.3 1" rotation="-90 -40 0" position="1.531 2.5 -1.8663.000" src="after.png"></a-image>
+                <a-image scale="1 1.3 1" rotation="-90 40 0" position="-1.769 2.5 -1.645" src="canva.png"></a-image>
+                <a-image scale="1 1.3 1" rotation="90 90 -0.003" position="2.206 2.5 -0.017" src="ai.png"></a-image>
+                <a-image scale="1 1.3 1" rotation="-90 -134.189 0" position="1.769 2.5 1.645" src="ps.png"></a-image>
+                <a-image scale="1 1.3 1" rotation="-90 90 0" position="-2.346 2.5 -0.003" src="premier.png"></a-image>
+                <a-image scale="1 1.3 1" rotation="-90 134.189 0" position="-1.769 2.5 1.645" src="figma.png"></a-image>
+                <a-image scale="1 1.3 1" rotation="-90 0 -180" position="-0.040 2.500 2.230" src="Moi.png"></a-image>             
+            </a-entity>
+        </a-marker>
+        <a-camera position="0 0 20"></a-camera>
+        </a-scene>
+        <script>var imageContainer = document.getElementById('imageContainer');
+            var rotationSpeed = 0.01; // ajustez cette valeur selon votre préférence de vitesse
+    
+            function animateImages() {
+              imageContainer.object3D.rotation.y += rotationSpeed;
+              requestAnimationFrame(animateImages);
+            }
+    
+            animateImages();</script>
+    </body>
 </html>
